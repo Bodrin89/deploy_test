@@ -16,13 +16,13 @@ jobs:
 
   deploy_dir:
       runs-on: ubuntu-latest
-      needs: build_and_push
+      needs: build_and_push deploy
       steps:
         - name: clone code
           uses: actions/checkout@v2
         - name: render configs
           run: |
-            cd deploy/flask_app_ci
+            cd flask_app_ci
             mkdir data_new
             cat data/user.db | envsubst > deploy/flask_app_ci/data_new/user.db
         - name: copy file to server
