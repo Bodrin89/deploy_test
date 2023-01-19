@@ -8,5 +8,5 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./data/user.db:/code/data/user.db
+      - ./data1/user.db:/code/data/user.db
 
