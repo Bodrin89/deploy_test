@@ -13,6 +13,7 @@ jobs:
         - name: docker push
           run: docker push vladimirbodrin/test1:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     runs-on: ubuntu-latest
+    steps:
       - name: clone code
   deploy:
     runs-on: ubuntu-latest
