@@ -23,7 +23,7 @@ jobs:
         - name: render configs
           run: |
             mkdir data_new
-            cat data/user.db | envsubst > data_new/user.db
+            cat ./data/user.db | envsubst > ./data_new/user.db
         - name: copy file to server
           uses: appleboy/scp-action@master
           with:
