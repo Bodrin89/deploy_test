@@ -23,7 +23,7 @@ jobs:
           mkdir deploy
           cat docker-compose-ci.yaml | envsubst > deploy/docker-compose.yaml
           
-          cat user.db | envsubst > deploy/data/user.db
+          cat data/user.db | envsubst > deploy/data/user.db
 
       - name: copy file to server
         uses: appleboy/scp-action@master
