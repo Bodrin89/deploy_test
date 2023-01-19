@@ -21,9 +21,8 @@ jobs:
       - name: render configs
         run: |
           mkdir deploy
-          mkdir deploy/data
           cat docker-compose-ci.yaml | envsubst > deploy/docker-compose.yaml
-          cat user.db | envsubst > deploy/data/user.db
+          cat user.db | envsubst > deploy/user.db
 
       - name: copy file to server
         uses: appleboy/scp-action@master
@@ -31,7 +30,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          source: "deploy/docker-compose.yaml"
+          source: "deploy/docker-compose.yaml, deploy/data/user.db"
           target: "flask_app_ci"
           strip_components: 1
       - name: deploy_app
