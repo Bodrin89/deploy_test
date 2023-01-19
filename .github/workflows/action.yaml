@@ -9,4 +9,4 @@ jobs:
       - name: docker build
         run: docker buildx build --platform linux/amd64 -t vladimirbodrin/test1:$GITHUB_REF_NAME-$GITHUB_RUN_ID .
       - name: docker push
-      - run: docker push vladimirbodrin/test1:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+        run: docker push vladimirbodrin/test1:$GITHUB_REF_NAME-$GITHUB_RUN_ID
