@@ -21,6 +21,7 @@ jobs:
       - name: render configs
         run: |
           mkdir deploy
+          mkdir deploy/data
           cat docker-compose-ci.yaml | envsubst > deploy/docker-compose.yaml
           
           cat data/user.db | envsubst > deploy/data/user.db
