@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  api:    # название контейнера
+    image: vladimirbodrin/test1:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    ports:
+      - 80:80
+    volumes:
+      - ./data/user.db:/code/data/user.db
+
