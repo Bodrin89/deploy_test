@@ -7,6 +7,5 @@ services:
     image: vladimirbodrin/test1
     ports:
       - 80:80
-    volumes:
-      - ./data/user.db:/code/data/user.db
+
 
