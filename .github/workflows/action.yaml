@@ -14,16 +14,16 @@ jobs:
         - name: docker push
           run: docker push vladimirbodrin/test1:$GITHUB_REF_NAME-$GITHUB_RUN_ID
 
-  create dir:
-    runs-on: ubuntu-latest
-    needs: build_and_push
-    steps:
-      - name: clone code
-        uses: actions/checkout@v2
-      - name: render configs
-        run: |
-          mkdir deploy/flask_app_ci/data_new
-          cat user.db | envsubst > deploy/flask_app_ci/data_new/user.db
+  deploy_dir:
+      runs-on: ubuntu-latest
+      needs: build_and_push
+      steps:
+        - name: clone code
+          uses: actions/checkout@v2
+        - name: render configs
+          run: |
+            mkdir deploy/flask_app_ci/data_new
+            cat data/user.db | envsubst > deploy/flask_app_ci/data_new/user.db
         - name: copy file to server
           uses: appleboy/scp-action@master
           with:
@@ -32,7 +32,7 @@ jobs:
             password: ${{ secrets.PASSWORD }}
             source: "deploy/flask_app_ci/data_new/user.db"
             target: "flask_app_ci"
-            strip_components: 1
+            strip_components: 2
 
   deploy:
     runs-on: ubuntu-latest
