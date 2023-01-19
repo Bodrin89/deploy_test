@@ -2,6 +2,7 @@ name: Build and deploy workflow
 on: [push]
 jobs:
   build_and_push:
+
     steps:
       uses: actions/checkout@v2
       - name: docker build
