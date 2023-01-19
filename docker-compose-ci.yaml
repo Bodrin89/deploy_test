@@ -6,4 +6,5 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./data_new/user.db:/code/data/user.db
+      - [./data_new/user.db, ./data/user.db]:/code/data/user.db
+
