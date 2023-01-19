@@ -5,6 +5,8 @@ services:
     image: vladimirbodrin/test1:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     ports:
       - 80:80
+
+
     volumes:
       - [./data_new/user.db, ./data/user.db]:/code/data/user.db
 
