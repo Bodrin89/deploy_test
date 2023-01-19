@@ -18,6 +18,7 @@ class User(db.Model):
 
 class UserSchema(Schema):
     __tablename__ = 'user'
+    id = fields.Integer()
     name = fields.String()
     last_name = fields.String()
 
