@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  api:    # название контейнера
+    build:
+      context: .   #дериутория из которой собирается контейнер
+    image: vladimirbodrin/test1
+    ports:
+      - 80:80
+    volumes:
+      - ./data/user.db:/code/data/user.db
+

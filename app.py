@@ -5,7 +5,7 @@ from marshmallow import Schema, fields
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/user.db'
 db = SQLAlchemy(app)
 
 
@@ -43,4 +43,3 @@ def post():
 
 if __name__ == "__main__":
     app.run()
-
