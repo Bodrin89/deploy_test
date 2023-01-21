@@ -28,7 +28,7 @@ class UserSchema(Schema):
 def get():
     userschema = UserSchema(many=True)
     user = db.session.query(User).all()
-    return (userschema.dump(user), "WWWWWWW")
+    return f"{userschema.dump(user)} FFFFFFFF"
 
 
 @app.route('/', methods=['POST'])
