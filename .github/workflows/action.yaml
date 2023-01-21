@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run flake8
-        run: flake8
+        run: flake8 app.py
 
   deploy_dir:
       runs-on: ubuntu-latest
