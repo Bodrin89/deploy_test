@@ -22,7 +22,6 @@ class UserSchema(Schema):
     last_name = fields.String()
 
 
-
 @app.route('/')
 def get():
     userschema = UserSchema(many=True)
