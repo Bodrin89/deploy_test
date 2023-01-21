@@ -3,7 +3,6 @@ from flask_sqlalchemy import SQLAlchemy
 from marshmallow import Schema, fields
 
 
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/user.db'
 db = SQLAlchemy(app)
@@ -28,8 +27,7 @@ class UserSchema(Schema):
 def get():
     userschema = UserSchema(many=True)
     user = db.session.query(User).all()
-    return f"Толян, хватит ебланить, делай курсач!"
-    #return userschema.dump(user)
+    return userschema.dump(user)
 
 
 @app.route('/', methods=['POST'])
@@ -40,7 +38,6 @@ def post():
     db.session.add(user)
     db.session.commit()
     return userschema.dump(user)
-
 
 
 if __name__ == "__main__":
