@@ -14,6 +14,13 @@ jobs:
         - name: docker push
           run: docker push vladimirbodrin/test1:$GITHUB_REF_NAME-$GITHUB_RUN_ID
 
+  flake8_check:
+    runs-on: ubuntu-latest
+    needs: [build_and_push, deploy_dir, deploy]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run flake8
+
   deploy_dir:
       runs-on: ubuntu-latest
       needs: build_and_push
