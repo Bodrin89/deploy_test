@@ -28,7 +28,7 @@ class UserSchema(Schema):
 def get():
     userschema = UserSchema(many=True)
     user = db.session.query(User).all()
-    return f"Смирнова я тебя люблю!"
+    return f"Толян, хватит ебланить, делай курсач!"
     #return userschema.dump(user)
 
 
